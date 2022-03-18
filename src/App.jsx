@@ -4,8 +4,8 @@ import Navbar from "./partials/Navbar";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Cart from "./pages/Cart";
 import SingleProduct from "./pages/SingleProduct";
+import Cart from "./pages/Cart";
 
 function App() {
   return (

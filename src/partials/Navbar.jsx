@@ -1,17 +1,27 @@
 import React from "react";
-import { Box, Image, Stack } from "@chakra-ui/react";
+import { Box, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <Box
-      bg="wheat"
-      padding="2"
+      bg="#900C3F"
+      textColor="white"
+      padding="3.5"
       display="flex-box"
       justifyContent="space-between"
       alignItems="center"
     >
-      <Stack as="nav" direction="row">
+      <Text
+        to="/"
+        alt="logo"
+        fontSize="30px"
+        color="#FFC300"
+        fontFamily="'Yellowtail', cursive;"
+      >
+        ProduitStore
+      </Text>
+      <Stack as="nav" direction="row" align="center">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/Cart">Cart</Link>

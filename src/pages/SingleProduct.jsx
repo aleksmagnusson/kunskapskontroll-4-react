@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
  */
 import { useRecoilValue } from "recoil";
 // Hämtar in ProductsAtom från productsState.
-import { productsState } from "../components/recoil/products/ProductsAtom";
+import { productsState } from "../components/recoil/products/productsAtom";
 
 function SingleProduct() {
   const params = useParams();
