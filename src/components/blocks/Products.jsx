@@ -34,7 +34,6 @@ function Products() {
           <SimpleGrid key={product.id} columns={2} gridColumn="2">
             <Image
               width="auto"
-              height="auto"
               paddingBlock="25"
               paddingRight="50"
               src={product.image}
@@ -42,14 +41,8 @@ function Products() {
             <Box>
               <Heading fontSize="larger">{product.title}</Heading>
               <Text fontWeight="bold">{product.price} $</Text>
-              <Text fontStyle="italic">{product.description}</Text>
-              <Text fontWeight="medium">{product.category}</Text>
-              <Text fontWeight="bold">
-                {" "}
-                Rating: {product.rating.rate} of {product.rating.count} ratings.
-              </Text>
               <br />
-              <Button as={Link} to={`/products/${product.id}`}>
+              <Button marginRight="5" as={Link} to={`/products/${product.id}`}>
                 Details
               </Button>
               <Button key={product.id} onClick={() => handleAdd(product)}>

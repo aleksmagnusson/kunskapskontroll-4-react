@@ -22,8 +22,11 @@ function ProductDetail() {
   // "useRecoilValue" hämtar "productsState" från "ProductsAtom.js"
   const [cart, setCart] = useRecoilState(cartState);
 
-  // const ProductDetail = product.filter((product) => product.id === id);
-  // productId = id;
+  // Importerar från "Carts" atom/selektor
+  function handleAdd(product) {
+    const newCart = [...cart, product];
+    setCart(newCart);
+  }
 
   // Hämta enskild produkt från Products till "ProductDetail".
   const product = products.find(

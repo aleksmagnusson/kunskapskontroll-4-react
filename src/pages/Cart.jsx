@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 // Om man vill ha styling i css. --> import "./CartTest.css"; <--
 // Importerar "cartState" state från min cart atom.
 import { cartState } from "../components/recoil/cart/atom";
+import { Link } from "react-router-dom";
 import {
   cartStatus,
   removeItemSelector,
@@ -19,6 +20,7 @@ import {
   Text,
   Button,
   SimpleGrid,
+  Image,
 } from "@chakra-ui/react";
 
 // Byt namn till Cart.
@@ -45,23 +47,56 @@ function Cart() {
   const removeItem = useSetRecoilState(removeItemSelector);
 
   return (
-    <div>
-      <h3>Din varukorg</h3>
-      {cart.map((product, index) => (
-        <p>
-          <img src={product.image} alt={product.title} />
-          <div className="product-info">
-            {product.title} {product.price}:-{" "}
-            <Button className="cart-button" onClick={() => removeItem(index)}>
-              Ta bort
-            </Button>
-          </div>
-        </p>
-      ))}
-      <p>Antal varor: {totalItems}</p>
-      <p>Summa: {totalPrice}</p>
-      <Button className="cart-button">Gå till betalning</Button>
-    </div>
+    <Container>
+      <Flex>
+        <Stack>
+          <Text fontSize="25px" textAlign="center" fontWeight="bold">
+            Your Cart
+          </Text>
+          {cart.map((product, index) => (
+            <p>
+              <Image
+                float="left"
+                width="25%"
+                marginleft="50%"
+                src={product.image}
+                alt={product.title}
+              />
+              <div className="product-info">
+                <Text
+                  textAlign="center"
+                  fontWeight="bold"
+                  paddingTop="45"
+                  paddingBottom="5"
+                >
+                  {product.title} {product.price}${" "}
+                </Text>
+                <Button
+                  className="cart-button"
+                  left="50%"
+                  onClick={() => removeItem(index)}
+                >
+                  Remove
+                </Button>
+              </div>
+            </p>
+          ))}
+          <Text fontSize="larger" fontWeight="bold" textAlign="center">
+            Amount of products: {totalItems}
+          </Text>
+          <Text fontSize="larger" fontWeight="bold" textAlign="center">
+            Total: {totalPrice} $
+          </Text>
+          <Button as={Link} to="/products">
+            {" "}
+            Continue Shopping{" "}
+          </Button>
+          <Button className="cart-button" disabled>
+            Checkout
+          </Button>
+        </Stack>
+      </Flex>
+    </Container>
   );
 }
 
