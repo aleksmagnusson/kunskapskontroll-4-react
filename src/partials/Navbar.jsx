@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <Box
+      // position="fixed"
+      // top="0px"
+      // width="100%"
       bg="#900C3F"
       textColor="white"
       padding="3.5"
@@ -13,6 +16,7 @@ function Navbar() {
       alignItems="center"
     >
       <Text
+        as={Link}
         to="/"
         alt="logo"
         fontSize="30px"

@@ -60,9 +60,7 @@ function Cart() {
       ))}
       <p>Antal varor: {totalItems}</p>
       <p>Summa: {totalPrice}</p>
-      <button className="cart-button" disabled>
-        Gå till betalning
-      </button>
+      <Button className="cart-button">Gå till betalning</Button>
     </div>
   );
 }

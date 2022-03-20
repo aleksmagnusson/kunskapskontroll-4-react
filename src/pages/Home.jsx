@@ -36,7 +36,7 @@ function Home() {
             ></iframe>
           </AspectRatio>
           <br />
-          <Button to="/products" padding="30">
+          <Button as={Link} to="/products" padding="30">
             See our products
           </Button>
         </Stack>

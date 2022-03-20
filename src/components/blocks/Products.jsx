@@ -50,11 +50,11 @@ function Products() {
               </Text>
               <br />
               <Button as={Link} to={`/products/${product.id}`}>
-                See More
+                Details
               </Button>
               <Button key={product.id} onClick={() => handleAdd(product)}>
                 {" "}
-                Add Product{" "}
+                Add product{" "}
               </Button>
             </Box>
           </SimpleGrid>
