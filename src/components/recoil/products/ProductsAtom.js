@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { RecoilRoot } from 'recoil';
 
 export const productsState = atom({
   key: "productsState",

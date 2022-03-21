@@ -1,4 +1,5 @@
 import react, { useState } from "react";
+import { RecoilRoot } from "recoil";
 import { Link } from "react-router-dom";
 // CSS från Chakra UI
 import {
