@@ -54,7 +54,7 @@ function Cart() {
             Your Cart
           </Text>
           {cart.map((product, index) => (
-            <p>
+            <Box key={product.id}>
               <Image
                 float="left"
                 width="25%"
@@ -81,7 +81,7 @@ function Cart() {
                   Remove
                 </Button>
               </div>
-            </p>
+            </Box>
           ))}
           <Text fontSize="larger" fontWeight="bold" textAlign="center">
             Amount of products: {totalItems}
