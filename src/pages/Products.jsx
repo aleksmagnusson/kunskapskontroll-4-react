@@ -24,7 +24,7 @@ function Products() {
           <Heading paddingBottom="50" paddingTop="50">
             ProduitStore's Products
           </Heading>
-          <ProductsBlock products={products} key={product.id} />
+          <ProductsBlock products={products} />
         </Stack>
       </Flex>
     </Container>
