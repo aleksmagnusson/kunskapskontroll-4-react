@@ -42,10 +42,21 @@ function Products() {
               <Heading fontSize="larger">{product.title}</Heading>
               <Text fontWeight="bold">{product.price} $</Text>
               <br />
-              <Button marginRight="5" as={Link} to={`/products/${product.id}`}>
+              <Button
+                border="1px"
+                fontWeight="bold"
+                marginRight="5"
+                as={Link}
+                to={`/products/${product.id}`}
+              >
                 Details
               </Button>
-              <Button key={product.id} onClick={() => handleAdd(product)}>
+              <Button
+                border="1px"
+                fontWeight="bold"
+                key={product.id}
+                onClick={() => handleAdd(product)}
+              >
                 {" "}
                 Add product{" "}
               </Button>

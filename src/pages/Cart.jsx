@@ -69,9 +69,11 @@ function Cart() {
                   paddingTop="45"
                   paddingBottom="5"
                 >
-                  {product.title} {product.price}${" "}
+                  {product.title} {product.price} ${" "}
                 </Text>
                 <Button
+                  border="1px"
+                  fontWeight="bold"
                   className="cart-button"
                   left="50%"
                   onClick={() => removeItem(index)}
@@ -85,13 +87,18 @@ function Cart() {
             Amount of products: {totalItems}
           </Text>
           <Text fontSize="larger" fontWeight="bold" textAlign="center">
-            Total: {totalPrice} $
+            Total: $ {totalPrice}
           </Text>
-          <Button as={Link} to="/products">
+          <Button border="1px" fontWeight="bold" as={Link} to="/products">
             {" "}
             Continue Shopping{" "}
           </Button>
-          <Button className="cart-button" disabled>
+          <Button
+            border="1px"
+            fontWeight="bold"
+            className="cart-button"
+            disabled
+          >
             Checkout
           </Button>
         </Stack>

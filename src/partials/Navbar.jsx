@@ -26,7 +26,7 @@ function Navbar() {
         ProduitStore
       </Text>
       <Stack as="nav" direction="row" align="center">
-        <Link to="/">Home</Link>
+        <Link to="/"> Home </Link>
         <Link to="/products">Products</Link>
         <Link to="/Cart">Cart</Link>
       </Stack>

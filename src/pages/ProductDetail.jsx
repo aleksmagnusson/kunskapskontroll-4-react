@@ -49,7 +49,7 @@ function ProductDetail() {
               {product.title}
             </Heading>
             <Text fontWeight="bold" textAlign="center">
-              {product.price} $
+              $ {product.price}
             </Text>
             <Text fontStyle="italic" textAlign="center">
               {product.description}
@@ -59,13 +59,23 @@ function ProductDetail() {
             </Text>
             <Text fontWeight="bold" textAlign="center" left="50%">
               {" "}
-              Rating: {product.rating.rate} of {product.rating.count} ratings.
+              Rating: {product.rating.rate} of 5. Total of{" "}
+              {product.rating.count} votes.
             </Text>
             <br />
-            <Button marginRight="25" left="50%" as={Link} to="/products">
+            <Button
+              border="1px"
+              fontWeight="bold"
+              marginRight="25"
+              left="50%"
+              as={Link}
+              to="/products"
+            >
               Go back
             </Button>
             <Button
+              border="1px"
+              fontWeight="bold"
               left="50%"
               key={product.id}
               onClick={() => handleAdd(product)}
