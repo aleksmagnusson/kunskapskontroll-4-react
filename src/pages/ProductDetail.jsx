@@ -24,8 +24,22 @@ function ProductDetail() {
 
   // Importerar från "Carts" atom/selektor
   function handleAdd(product) {
-    const newCart = [...cart, product];
-    setCart(newCart);
+    const newCart = {
+      id: Math.floor(Math.random() * 10000),
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      category: product.category,
+      image: product.image,
+      rating: {
+        rate: product.rating.rate,
+        count: product.rating.count,
+      },
+    };
+
+    setCart((prevCart) => {
+      return [...prevCart, newCart];
+    });
   }
 
   // Hämta enskild produkt från Products till "ProductDetail".

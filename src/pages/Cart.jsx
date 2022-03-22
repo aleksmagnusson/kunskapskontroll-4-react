@@ -23,23 +23,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-// Byt namn till Cart.
-
-// En funktion som hämtar produkterna till den nya varukorgen.
-function handleAdd(product) {
-  const newCart = [...cart, product];
-  setCart(newCart);
-}
-
-/*
- * För att hämta produkterna från min atom med produkter.
- * {products.map((product) => (
- * <button key={product.id} onClick={() => handleAdd(product)}>
- *   {product.title} - {product.price}$
- * </button>
- * ))}
- */
-
 function Cart() {
   // cart och setCart hämtas från min atom i cart-mappen.
   const [cart, setCart] = useRecoilState(cartState);

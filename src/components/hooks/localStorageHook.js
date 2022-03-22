@@ -25,10 +25,4 @@ export function localStorageHook() {
     }) []*/
 
   return { save, load };
-
-  //  function App() {} (
-  //    const { save, load } = useLocalStorage();
-
-  //   return <div></div>
-  //    )
 }
