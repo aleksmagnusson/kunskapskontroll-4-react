@@ -2,7 +2,7 @@
 import { useRecoilValue, useRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 // Hämtar in ProductsAtom från productsState.
-import { productsState } from "../components/recoil/products/productsAtom";
+
 import {
   Box,
   Heading,
@@ -15,6 +15,7 @@ import {
 import { cartState } from "../components/recoil/cart/atom";
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
+import { productsState } from "../components/recoil/products/productsAtom";
 
 function ProductDetail() {
   const params = useParams();
