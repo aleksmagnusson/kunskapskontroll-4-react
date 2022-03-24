@@ -1,0 +1,4 @@
+[build]
+base = "dist"
+command = "npm run build"
+publish = "dist/kunskapskontroll-3-react"
