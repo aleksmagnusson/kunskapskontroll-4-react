@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProductsBlock from "../components/blocks/Products.jsx";
+import ProductsBlock from "../Products";
 import { Container, Heading, Stack, Flex } from "@chakra-ui/react";
 
 function Products() {

@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { cartState } from "../recoil/cart/atom";
+import { cartState } from "./atom";
 
 export const handleAdd = () => {
   const [cartItems, setCartItems] = useRecoilState(props);

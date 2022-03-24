@@ -12,10 +12,10 @@ import {
   Stack,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { cartState } from "../components/recoil/cart/atom";
+import { cartState } from "../atom";
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
-import { productsState } from "../components/recoil/products/productsAtom";
+import { productsState } from "../productsAtom";
 
 function ProductDetail() {
   const params = useParams();
