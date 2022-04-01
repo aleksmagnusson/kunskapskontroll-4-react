@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import {
@@ -30,6 +30,24 @@ const LoginPage = () => {
   const navigate = useNavigate();
   // Get all products | Get cart from products
   const { getCart } = cartHook(useRecoilState);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Login for certain user w. usn/pws
+    user.forEach((profile) => {
+      if (profile.username === username && profile.password === password) {
+        setCurrentUser(profile);
+        localStorage.setItem("currentUsers", JSON.stringify(profile));
+        if (personalbar.role === "user") {
+          getCart(profile.id);
+          navigate("/ProfilePage");
+        } else if (profile.role === "admin") {
+          navigate("/Admin");
+        }
+      }
+    });
+  }
 
   return (
     <Container>
