@@ -29,6 +29,8 @@ function Navbar() {
         <Link to="/"> Home </Link>
         <Link to="/products">Products</Link>
         <Link to="/Cart">Cart</Link>
+
+        <Link to="/LoginPage">Login</Link>
       </Stack>
     </Box>
   );

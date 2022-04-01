@@ -8,13 +8,11 @@ import { cartStatus, removeItemSelector } from "../selectors";
 // Av mina selektorer hämtar jag "cartStatus" & "removeItemSelector".
 import {
   Container,
-  Heading,
   Stack,
   Flex,
   Box,
   Text,
   Button,
-  SimpleGrid,
   Image,
 } from "@chakra-ui/react";
 
