@@ -1,12 +1,13 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Routes, Route, Router } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
+import Product from "./";
 import Cart from "./pages/Cart";
-import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 /* "Home" är startsidan för kunskapkontroll 4 där det finns en enkel bild med en välkomstext till användaren.
  Innuti navigationsfältet ska det finnas tillgång för användaren att komma tillbaka till "Home", se de tillgängliga produkter som finns i "products".
@@ -19,17 +20,18 @@ import Login from "./pages/Login";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:productId" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart />} />
-
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

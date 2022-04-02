@@ -1,87 +1,81 @@
 import React from "react";
-// Importerar "useRecoilState, useRecoilValue och useSetRecoilState" från recoil.
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import productsState from "../stores/products/atom";
-import { Link } from "react-router-dom";
 import useCart from "../hooks/useCart";
-import {
-  Container,
-  Stack,
-  Flex,
-  Box,
-  Text,
-  Button,
-  Image,
-} from "@chakra-ui/react";
+import productsState from "../stores/products/atom";
+import { useRecoilValue } from "recoil";
+import { Container, Grid, Text, Box, Image, Button } from "@chakra-ui/react";
 
 function Cart() {
-  // cart och setCart hämtas från min atom i cart-mappen.
-  const products = useRecoilValue(productsState);
   const cart = useCart();
+  const products = useRecoilValue(productsState);
 
-  function 
-  const [cart, setCart] = useRecoilState(cartState);
-  const { totalItems, totalPrice } = useRecoilValue(cartStatus);
-  const removeItem = useSetRecoilState(removeItemSelector);
+  function getTotal() {
+    // “.reduce((acc, current) => ({ ...acc, [current]: 0 }), {})”
+    return cart.items.reduce((acc, current) => {
+      const product = products.find((p) => p.id === current.id);
+      return acc + product.price * current.quantity;
+    }, 0);
+  }
+
+  function getProduct(item) {
+    const product = products.find((p) => p.id === item.id);
+    const quantity = item.quantity;
+
+    return (
+      <div key={item.id}>
+        <Container padding={2}>
+          <Grid key={product.id} justifyItems="center" alignItems="center">
+            <Image
+              display="block"
+              objectFit="contain"
+              height="80px"
+              width="80px"
+              src={product.image}
+              alt={product.title}
+            />
+          </Grid>
+          <Box>
+            <Text border="1px" textAlign="center" fontWeight="bold">
+              {" "}
+              {product.title} {product.price} $
+            </Text>
+            <Button
+              size="sm"
+              border="1px"
+              onClick={() => cart.setItemQuantity(item.id, item.quantity - 1)}
+            >
+              -
+            </Button>
+            <Text>{quantity}</Text>
+            <Button
+              size="sm"
+              border="1px"
+              onClick={() => cart.setItemQuantity(item.id, item.quantity + 1)}
+            >
+              +
+            </Button>
+            <Button
+              marginLeft="5"
+              border="1px"
+              onClick={() => cart.setItemQuantity(item.id, 0)}
+            >
+              Remove
+            </Button>
+          </Box>
+        </Container>
+      </div>
+    );
+  }
 
   return (
-    <Container>
-      <Flex>
-        <Stack>
-          <Text fontSize="25px" textAlign="center" fontWeight="bold">
-            Your Cart
-          </Text>
-          {cart.map((product, index) => (
-            <Box key={product.id}>
-              <Image
-                float="left"
-                width="25%"
-                marginleft="50%"
-                src={product.image}
-                alt={product.title}
-              />
-              <div className="product-info">
-                <Text
-                  textAlign="center"
-                  fontWeight="bold"
-                  paddingTop="45"
-                  paddingBottom="5"
-                >
-                  {product.title} {product.price} ${" "}
-                </Text>
-                <Button
-                  border="1px"
-                  fontWeight="bold"
-                  className="cart-button"
-                  left="50%"
-                  onClick={() => removeItem(index)}
-                >
-                  Remove
-                </Button>
-              </div>
-            </Box>
-          ))}
-          <Text fontSize="larger" fontWeight="bold" textAlign="center">
-            Amount of products: {totalItems}
-          </Text>
-          <Text fontSize="larger" fontWeight="bold" textAlign="center">
-            Total: $ {totalPrice}
-          </Text>
-          <Button border="1px" fontWeight="bold" as={Link} to="/products">
-            {" "}
-            Continue Shopping{" "}
-          </Button>
-          <Button
-            border="1px"
-            fontWeight="bold"
-            className="cart-button"
-            disabled
-          >
-            Checkout
-          </Button>
-        </Stack>
-      </Flex>
-    </Container>
+    <Box border="1px">
+      <Grid textAlign="center">
+        <Text fontSize="25px" textAlign="center" fontWeight="bold">
+          Your Cart
+        </Text>
+        {cart.items.map(getProduct)}
+        <Text>Total: {getTotal().toFixed(2)}$</Text>
+      </Grid>
+    </Box>
   );
 }
 
