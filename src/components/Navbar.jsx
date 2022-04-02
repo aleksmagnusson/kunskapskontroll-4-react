@@ -15,22 +15,22 @@ function Navbar() {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Text
-        as={Link}
-        to="/"
-        alt="logo"
-        fontSize="30px"
-        color="#FFC300"
-        fontFamily="'Yellowtail', cursive;"
-      >
-        ProduitStore
-      </Text>
       <Stack as="nav" direction="row" align="center">
+        <Text
+          as={Link}
+          to="/"
+          alt="logo"
+          fontSize="30px"
+          color="#FFC300"
+          fontFamily="'Yellowtail', cursive;"
+        >
+          ProduitStore
+        </Text>
         <Link to="/"> Home </Link>
         <Link to="/products">Products</Link>
         <Link to="/Cart">Cart</Link>
 
-        <Link to="/LoginPage">Login</Link>
+        <Link to="/Login">Login</Link>
       </Stack>
     </Box>
   );

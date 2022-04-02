@@ -1,11 +1,9 @@
+import React from "react";
 // Importerar "useRecoilState, useRecoilValue och useSetRecoilState" från recoil.
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-// Om man vill ha styling i css. --> import "./CartTest.css"; <--
-// Importerar "cartState" state från min cart atom.
-import { cartState } from "../atom";
+import productsState from "../stores/products/atom";
 import { Link } from "react-router-dom";
-import { cartStatus, removeItemSelector } from "../selectors";
-// Av mina selektorer hämtar jag "cartStatus" & "removeItemSelector".
+import useCart from "../hooks/useCart";
 import {
   Container,
   Stack,
@@ -18,6 +16,10 @@ import {
 
 function Cart() {
   // cart och setCart hämtas från min atom i cart-mappen.
+  const products = useRecoilValue(productsState);
+  const cart = useCart();
+
+  function 
   const [cart, setCart] = useRecoilState(cartState);
   const { totalItems, totalPrice } = useRecoilValue(cartStatus);
   const removeItem = useSetRecoilState(removeItemSelector);

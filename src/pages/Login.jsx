@@ -13,7 +13,7 @@ import {
   Grid,
 } from "@chakra-ui/react";
 
-const LoginPage = () => {
+const Login = () => {
   // Show x Hide password function in Chakra
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
@@ -76,4 +76,4 @@ const LoginPage = () => {
     </Container>
   );
 };
-export default LoginPage;
+export default Login;
