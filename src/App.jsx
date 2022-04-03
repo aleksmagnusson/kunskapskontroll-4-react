@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Routes, Route, Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Product from "./";
+import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer";
 

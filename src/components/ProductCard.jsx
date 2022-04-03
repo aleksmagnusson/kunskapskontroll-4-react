@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ProductCard({ product, onClick }) {
   return (
-    <Grid item margin={2} xs={8} sm={4} md={3}>
+    <Grid margin={2} xs={8} sm={4} md={3}>
       <Box>
         <Image
           alt={product.title}
