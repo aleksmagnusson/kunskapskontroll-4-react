@@ -28,12 +28,14 @@ const Footer = () => {
             <IconButton
               as="a"
               href="https://www.linkedin.com/in/aleks-magnusson-326165166/"
+              target="_blank"
               aria-label="LinkedIn"
               icon={<FaLinkedin fontSize="1.25rem" />}
             />
             <IconButton
               as="a"
               href="https://github.com/aleksmagnusson"
+              target="_blank"
               aria-label="GitHub"
               icon={<FaGithub fontSize="1.25rem" />}
             />
