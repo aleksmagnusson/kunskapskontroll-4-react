@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import Footer from "./components/Footer";
 
 import productsState from "./stores/products/atom";
+import userState from "./stores/users/atom";
 // import cartState from "./stores/cart/atom";
 
 /* "Home" är startsidan för kunskapkontroll 4 där det finns en enkel bild med en välkomstext till användaren.
@@ -44,6 +45,13 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  const setUsers = useRecoilState(userState)[1];
+  useEffect(() => {
+    axios.get("https://k4backend.osuka.dev/users").then((response) => {
+      setUsers(response.data);
+    });
+  }, [setUsers]);
+
   return (
     <Router>
       <Navbar />
@@ -53,8 +61,8 @@ function App() {
         <Route path="/products/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />

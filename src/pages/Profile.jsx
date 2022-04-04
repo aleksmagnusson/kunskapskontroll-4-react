@@ -21,16 +21,16 @@ function Profile() {
   return (
     <Box>
       <Heading>{User} Profile</Heading>
-      <Text>{user.email}</Text>
-      <Text>{user.username}</Text>
-      <Text>{user.password}</Text>
-      <Text>{user.name.firstname}</Text>
-      <Text>{user.name.lastname}</Text>
-      <Text>{user.address.city}</Text>
-      <Text>{user.address.street}</Text>
-      <Text>{user.address.zipcode}</Text>
-      <Text>{user.address.number}</Text>
-      <Text>{user.phone}</Text>
+      <Text>Email: {user.email}</Text>
+      <Text>Username: {user.username}</Text>
+      <Text>PWD: {user.password}</Text>
+      <Text>Firstname: {user.name.firstname}</Text>
+      <Text>Lastname:{user.name.lastname}</Text>
+      <Text>City: {user.address.city}</Text>
+      <Text>Street:{user.address.street}</Text>
+      <Text>Zipcode: {user.address.zipcode}</Text>
+      <Text>Number: {user.address.number}</Text>
+      <Text>Phone: {user.phone}</Text>
       <Button size="sm" _hover="primary" onClick={reset}>
         Log out
       </Button>
