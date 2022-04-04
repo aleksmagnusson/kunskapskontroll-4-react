@@ -13,11 +13,21 @@ function Admin() {
   const { user } = useRecoilValue(authState);
 
   if (!user) {
-    return <Text> You need to log in to see data.</Text>;
+    return (
+      <Text align="center" fontSize="large" fontWeight="black">
+        {" "}
+        ⚠️ You need to log in to see data. ⚠️
+      </Text>
+    );
   }
 
   if (user.role === "user") {
-    return <Text>You do not have access to this data.</Text>;
+    return (
+      <Text align="center" fontSize="large" fontWeight="black">
+        {" "}
+        ⚠️ You do not have access to this data. ⚠️
+      </Text>
+    );
   }
 
   return (

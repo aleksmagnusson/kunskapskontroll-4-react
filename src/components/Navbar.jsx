@@ -27,26 +27,19 @@ function Navbar() {
           ProduitStore
         </Text>
         <Link to="/"> Home </Link>
+
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
 
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
 
+        <Link to="/profile">Profile</Link>
         <Link to="/admin">Admin</Link>
       </Stack>
     </Box>
   );
 }
-
-/* Image
- <Image
- src="https://www.brainville.com/UserContent/CompanyLogotypes/22841/MailLogotype/MailLogotype.png"
- width="50px"
- height="50px"
- to="/"
- />
-*/
 
 /* Använder oss av Link och path från "react-router-dom".
  * Link länkar var på hemsidan man navigeras och därefter skickar användaren dit.
