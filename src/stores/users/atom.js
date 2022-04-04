@@ -1,9 +1,9 @@
 // Atom för "Recoil" stores användar-data/backend.
 import { atom } from "recoil";
 
-export const usersState = atom({
-  key: "usersState",
+export const userState = atom({
+  key: "userState",
   default: [],
 });
 
-export default usersState;
+export default userState;

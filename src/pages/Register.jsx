@@ -32,7 +32,7 @@ function Register() {
       firstname: "",
       lastname: "",
     },
-    adress: {
+    address: {
       city: "",
       street: "",
       number: "",
@@ -44,7 +44,6 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    // Hämta användare från backend när man väl ska logga in.
     axios.post("https://k4backend.osuka.dev/users", user).then((response) => {
       axios
         .post("https://k4backend.osuka.dev/auth/login", {
@@ -53,18 +52,16 @@ function Register() {
         })
         .then((response) => {
           axios
-            .get(`https://k4backend.osuka.dev/users${response.data.userId}`)
+            .get(`https://k4backend.osuka.dev/users/${response.data.userId}`)
             .then((userData) => {
-              // Console.log(användardata som man hämtar från registreringen).
               console.log(userData.data);
-
               setAuth({
                 user: userData.data,
                 token: response.data.token,
               });
+              navigate("/");
             });
         });
-      //  navigate("/"); // lägg till vilken länk den ska till.
     });
   };
 
@@ -88,7 +85,7 @@ function Register() {
           p={8}
         >
           <Stack spacing={4}>
-            <div onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
                 <Input
@@ -171,12 +168,12 @@ function Register() {
                   <FormLabel>City</FormLabel>
                   <Input
                     type="text"
-                    placeholder="City"
-                    value={user.adress.city}
+                    placeholder="city"
+                    value={user.address.city}
                     onChange={(e) =>
                       setUser({
                         ...user,
-                        adress: { ...user.adress, city: e.target.value },
+                        address: { ...user.address, city: e.target.value },
                       })
                     }
                   />
@@ -186,11 +183,11 @@ function Register() {
                   <Input
                     type="text"
                     placeholder="Street"
-                    value={user.adress.street}
+                    value={user.address.street}
                     onChange={(e) =>
                       setUser({
                         ...user,
-                        adress: { ...user.adress, street: e.target.value },
+                        address: { ...user.address, street: e.target.value },
                       })
                     }
                   />
@@ -202,11 +199,14 @@ function Register() {
                       <Input
                         type="text"
                         placeholder="Zipcode"
-                        value={user.adress.zipcode}
+                        value={user.address.zipcode}
                         onChange={(e) =>
                           setUser({
                             ...user,
-                            adress: { ...user.adress, zipcode: e.target.value },
+                            address: {
+                              ...user.address,
+                              zipcode: e.target.value,
+                            },
                           })
                         }
                       />
@@ -218,11 +218,14 @@ function Register() {
                       <Input
                         type="text"
                         placeholder="Street number"
-                        value={user.adress.number}
+                        value={user.address.number}
                         onChange={(e) =>
                           setUser({
                             ...user,
-                            adress: { ...user.adress, number: e.target.value },
+                            address: {
+                              ...user.address,
+                              number: e.target.value,
+                            },
                           })
                         }
                       />
@@ -264,7 +267,7 @@ function Register() {
                   </Link>
                 </Text>
               </Stack>
-            </div>
+            </form>
           </Stack>
         </Box>
       </Stack>
