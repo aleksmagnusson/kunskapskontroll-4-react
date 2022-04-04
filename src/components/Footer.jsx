@@ -19,7 +19,7 @@ const Footer = () => {
             to="/"
             alt="logo"
             fontSize="30px"
-            color="#FFC300"
+            color="#000000"
             fontFamily="'Yellowtail', cursive;"
           >
             ProduitStore

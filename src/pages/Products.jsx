@@ -2,7 +2,7 @@ import React from "react";
 import useCart from "../hooks/useCart";
 import { Heading, Stack, Flex, Box, SimpleGrid } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { productsState } from "../productsAtom";
+import productsState from "../stores/products/atom";
 import ProductCard from "../components/ProductCard";
 
 function Products() {

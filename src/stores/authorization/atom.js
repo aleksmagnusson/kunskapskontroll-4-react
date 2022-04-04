@@ -6,14 +6,11 @@ import { atom } from "recoil";
  * applikationen.
  */
 
-// "role" används för att bestämma vilken roll användaren ("user") har.
-// Beroende på om det är "admin" eller vanlig "user" som loggar in.
-
-const authState = atom({
+export const authState = atom({
   key: "authState",
   default: {
     token: null,
-    user: { role: null },
+    user: null,
   },
 });
 

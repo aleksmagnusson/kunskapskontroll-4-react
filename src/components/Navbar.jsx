@@ -28,9 +28,10 @@ function Navbar() {
         </Text>
         <Link to="/"> Home </Link>
         <Link to="/products">Products</Link>
-        <Link to="/Cart">Cart</Link>
+        <Link to="/cart">Cart</Link>
 
-        <Link to="/Login">Login</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </Stack>
     </Box>
   );
