@@ -20,20 +20,25 @@ function Profile() {
 
   return (
     <Box>
-      <Heading>{User} Profile</Heading>
-      <Text>Email: {user.email}</Text>
-      <Text>Username: {user.username}</Text>
-      <Text>PWD: {user.password}</Text>
-      <Text>Firstname: {user.name.firstname}</Text>
-      <Text>Lastname:{user.name.lastname}</Text>
-      <Text>City: {user.address.city}</Text>
-      <Text>Street:{user.address.street}</Text>
-      <Text>Zipcode: {user.address.zipcode}</Text>
-      <Text>Number: {user.address.number}</Text>
-      <Text>Phone: {user.phone}</Text>
-      <Button size="sm" _hover="primary" onClick={reset}>
-        Log out
-      </Button>
+      <Heading fontStyle="italic" fontWeight="black" align="center">
+        Welcome!
+      </Heading>
+      <Box border="1px">
+        <Heading>Profile</Heading>
+        <Text>Email: {user.email}</Text>
+        <Text>Username: {user.username}</Text>
+        <Text>PWD: {user.password}</Text>
+        <Text>Firstname: {user.name.firstname}</Text>
+        <Text>Lastname:{user.name.lastname}</Text>
+        <Text>City: {user.address.city}</Text>
+        <Text>Street:{user.address.street}</Text>
+        <Text>Zipcode: {user.address.zipcode}</Text>
+        <Text>Number: {user.address.number}</Text>
+        <Text>Phone: {user.phone}</Text>
+        <Button size="sm" _hover="primary" onClick={reset}>
+          Log out
+        </Button>
+      </Box>
     </Box>
   );
 }

@@ -1,6 +1,7 @@
 import react, { useState } from "react";
 import { Link } from "react-router-dom";
 import authState from "../stores/authorization/atom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   Box,
@@ -18,7 +19,9 @@ import { useRecoilState } from "recoil";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useRecoilState(authState);
+  const [_, setAuth] = useRecoilState(authState);
+
+  const navigate = useNavigate();
 
   function login(username, password) {
     axios
@@ -26,13 +29,18 @@ function Login() {
         username: username,
         password: password,
       })
-      .then((res) => getUser(res.data.userId));
-  }
 
-  function getUser(userId) {
-    axios
-      .get(`https://k4backend.osuka.dev/users/${userId}`)
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        axios
+          .get(`https://k4backend.osuka.dev/users/${res.data.userId}`)
+          .then((userData) => {
+            setAuth({
+              user: userData.data,
+              token: res.data.token,
+            });
+            navigate("/profile");
+          });
+      });
   }
 
   return (
