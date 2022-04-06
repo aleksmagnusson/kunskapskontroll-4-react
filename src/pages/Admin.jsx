@@ -15,10 +15,23 @@ function Admin() {
 
   if (!user) {
     return (
-      <Text align="center" fontSize="large" fontWeight="black">
-        {" "}
-        ⚠️ Admin need to log in to see data. ⚠️
-      </Text>
+      <Box>
+        <Text align="center" fontSize="large" fontWeight="black">
+          ⚠️ Admin need to log in to see data. ⚠️
+        </Text>
+        <Button
+          size="md"
+          marginLeft="50%"
+          marginTop="25px"
+          bg="blue.400"
+          color="white"
+          _hover={{ bg: "blue.500" }}
+          as={Link}
+          to="/login"
+        >
+          Login
+        </Button>
+      </Box>
     );
   }
 

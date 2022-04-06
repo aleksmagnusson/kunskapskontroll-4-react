@@ -11,9 +11,23 @@ function Profile() {
 
   if (!user) {
     return (
-      <Text align="center" fontSize="large" fontWeight="black">
-        ⚠️ Not signed in to profile. ⚠️
-      </Text>
+      <Box>
+        <Text align="center" fontSize="large" fontWeight="black">
+          ⚠️ Not signed in to profile. ⚠️
+        </Text>
+        <Button
+          size="md"
+          marginLeft="50%"
+          marginTop="25px"
+          bg="blue.400"
+          color="white"
+          _hover={{ bg: "blue.500" }}
+          as={Link}
+          to="/login"
+        >
+          Login
+        </Button>
+      </Box>
     );
   }
   console.log(user);
@@ -35,7 +49,15 @@ function Profile() {
         <Text>Zipcode: {user.address.zipcode}</Text>
         <Text>Number: {user.address.number}</Text>
         <Text>Phone: {user.phone}</Text>
-        <Button size="sm" onClick={reset} as={Link} to="/">
+        <Button
+          size="md"
+          bg="blue.400"
+          color="white"
+          _hover={{ bg: "blue.500" }}
+          onClick={reset}
+          as={Link}
+          to="/"
+        >
           Log out
         </Button>
       </Box>

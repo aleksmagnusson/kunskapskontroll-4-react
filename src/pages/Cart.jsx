@@ -1,8 +1,19 @@
 import React from "react";
 import useCart from "../hooks/useCart";
 import productsState from "../stores/products/atom";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { Container, Grid, Text, Box, Image, Button } from "@chakra-ui/react";
+import {
+  Container,
+  Grid,
+  Text,
+  Box,
+  Image,
+  Button,
+  Stack,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 
 function Cart() {
   const cart = useCart();
@@ -22,59 +33,102 @@ function Cart() {
 
     return (
       <div key={item.id}>
-        <Container padding={2}>
-          <Grid key={product.id} justifyItems="center" alignItems="center">
-            <Image
-              display="block"
-              objectFit="contain"
-              height="80px"
-              width="80px"
-              src={product.image}
-              alt={product.title}
-            />
-          </Grid>
-          <Box>
-            <Text border="1px" textAlign="center" fontWeight="bold">
-              {" "}
-              {product.title} {product.price} $
-            </Text>
-            <Button
-              size="sm"
-              border="1px"
-              onClick={() => cart.setItemQuantity(item.id, item.quantity - 1)}
-            >
-              -
-            </Button>
-            <Text>{quantity}</Text>
-            <Button
-              size="sm"
-              border="1px"
-              onClick={() => cart.setItemQuantity(item.id, item.quantity + 1)}
-            >
-              +
-            </Button>
-            <Button
-              marginLeft="5"
-              border="1px"
-              onClick={() => cart.setItemQuantity(item.id, 0)}
-            >
-              Remove
-            </Button>
-          </Box>
+        <Container padding={4}>
+          <Stack direction={["column", "row"]} spacing="10px">
+            <HStack spacing="10">
+              <Box key={product.id} justifyItems="center" alignItems="center">
+                <Image
+                  display="block"
+                  objectFit="contain"
+                  height="100px"
+                  width="100px"
+                  src={product.image}
+                  alt={product.title}
+                />
+              </Box>
+              <Text textAlign="center" fontWeight="bold">
+                {" "}
+                {product.title}
+              </Text>
+              <Text textAlign="center" fontWeight="bold">
+                {" "}
+                {product.price}:- $
+              </Text>
+            </HStack>
+          </Stack>
+          <Stack direction={["column", "row"]} spacing="10px">
+            <HStack spacing="12px" marginTop="10px">
+              <Button
+                bg="blue.400"
+                color="white"
+                size="sm"
+                _hover={{ bg: "blue.500" }}
+                onClick={() =>
+                  cart.setItemQuantity(product.id, item.quantity - 1)
+                }
+              >
+                -
+              </Button>
+              <Text>{quantity}</Text>
+              <Button
+                bg="blue.400"
+                color="white"
+                size="sm"
+                _hover={{ bg: "blue.500" }}
+                onClick={() =>
+                  cart.setItemQuantity(product.id, item.quantity + 1)
+                }
+              >
+                +
+              </Button>
+              <Button
+                bg="blue.400"
+                color="white"
+                size="sm"
+                marginLeft="15"
+                _hover={{ bg: "blue.500" }}
+                onClick={() => cart.setItemQuantity(item.id, 0)}
+              >
+                Remove
+              </Button>
+            </HStack>
+          </Stack>
         </Container>
       </div>
     );
   }
 
   return (
-    <Box border="1px">
-      <Grid textAlign="center">
-        <Text fontSize="25px" textAlign="center" fontWeight="bold">
-          Your Cart
-        </Text>
-        {cart.items.map(getProduct)}
-        <Text>Total: {getTotal().toFixed(2)}$</Text>
-      </Grid>
+    <Box>
+      <Text fontSize="25px" textAlign="center" fontWeight="bold">
+        Your Cart
+      </Text>
+      {cart.items.map(getProduct)}
+      <Grid textAlign="center"></Grid>
+      <Text textAlign="center" fontWeight="bold">
+        Total: {getTotal().toFixed(2)}:- $
+      </Text>
+      <VStack direction={["column", "row"]} spacing="20px">
+        <Button
+          bg="blue.400"
+          color="white"
+          size="md"
+          _hover={{ bg: "blue.500" }}
+          as={Link}
+          to="/products"
+        >
+          Continue Shopping
+        </Button>
+        <Button
+          bg="blue.500"
+          color="white"
+          size="md"
+          _hover={{ bg: "blue.100" }}
+          disabled
+        >
+          Checkout
+        </Button>
+      </VStack>
     </Box>
   );
 }

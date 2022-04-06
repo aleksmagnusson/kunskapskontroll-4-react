@@ -13,7 +13,7 @@ function SingleProductCard({ product, onClick }) {
         p={1}
         pt={2}
       >
-        <Image width="25%" src={product.image} alt={product.title} />
+        <Image width="15%" src={product.image} alt={product.title} />
         <Box>
           <Text
             paddingTop="3"
