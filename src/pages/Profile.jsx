@@ -41,7 +41,9 @@ function Profile() {
         <Heading>Profile</Heading>
         <Text>Email: {user.email}</Text>
         <Text>Username: {user.username}</Text>
-        <Text>PWD: {user.password}</Text>
+        <Text color="white" _hover={{ color: "black" }}>
+          Password: {user.password}
+        </Text>
         <Text>Firstname: {user.name.firstname}</Text>
         <Text>Lastname:{user.name.lastname}</Text>
         <Text>City: {user.address.city}</Text>

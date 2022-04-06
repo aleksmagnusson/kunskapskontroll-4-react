@@ -37,17 +37,44 @@ function Admin() {
 
   if (user.role === "user") {
     return (
-      <Text marginTop="10px" align="center" fontSize="large" fontWeight="black">
-        {" "}
-        ⚠️ You do not have access to this data. ⚠️ <br /> Please contact Admin
-      </Text>
+      <Box>
+        <Text
+          marginTop="10px"
+          align="center"
+          fontSize="large"
+          fontWeight="black"
+        >
+          {" "}
+          ⚠️ You do not have access to this data. ⚠️ <br /> Please contact Admin
+        </Text>
+        <Button
+          size="md"
+          marginLeft="50%"
+          marginTop="25px"
+          bg="blue.400"
+          color="white"
+          _hover={{ bg: "blue.500" }}
+          as={Link}
+          to="/login"
+        >
+          Login
+        </Button>
+      </Box>
     );
   }
 
   return (
     <Box border="1px">
       <Heading align="center"> Overview of products and users </Heading>
-      <Button size="sm" _hover="primary" onClick={reset} as={Link} to="/">
+      <Button
+        size="sm"
+        bg="blue.400"
+        color="white"
+        _hover={{ bg: "blue.500" }}
+        onClick={reset}
+        as={Link}
+        to="/"
+      >
         Log out
       </Button>
       {products.map((product) => {
@@ -55,8 +82,8 @@ function Admin() {
           <Grid margin={4} xs={8} sm={4} md={2}>
             <Box border="1px" key={product.id} to={`/product/${product.id}`}>
               <Image width="15%" src={product.image} />
-              <Text>{product.title}</Text>
-              <Text>{product.price}</Text>
+              <Text fontWeight="semibold">{product.title}</Text>
+              <Text fontWeight="semibold">$ {product.price}:-</Text>
             </Box>
           </Grid>
         );
