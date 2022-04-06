@@ -8,12 +8,13 @@ function Navbar() {
       // position="fixed"
       // top="0px"
       // width="100%"
-      bg="#900C3F"
-      textColor="white"
-      padding="3.5"
+      bg="#FFFFFF"
+      textColor="black"
+      padding="4"
       display="flex-box"
       justifyContent="space-between"
       alignItems="center"
+      marginLeft="5"
     >
       <Stack as="nav" direction="row" align="center">
         <Text
@@ -21,12 +22,13 @@ function Navbar() {
           to="/"
           alt="logo"
           fontSize="30px"
-          color="#FFC300"
+          color="#000000"
           fontFamily="'Yellowtail', cursive;"
+          marginRight="5"
         >
           ProduitStore
         </Text>
-        <Link to="/"> Home </Link>
+        <Link to="/">Home</Link>
 
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>

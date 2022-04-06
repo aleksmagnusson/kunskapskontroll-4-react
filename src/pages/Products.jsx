@@ -18,7 +18,7 @@ function Products() {
     >
       <Flex>
         <Stack>
-          <Heading paddingBottom="50" paddingTop="50">
+          <Heading paddingBottom="10" paddingTop="10" textAlign="center">
             ProduitStore's Products
           </Heading>
           <SimpleGrid columns={2} gridColumn="2">

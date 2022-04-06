@@ -21,7 +21,7 @@ function Profile() {
   return (
     <Box>
       <Heading fontStyle="italic" fontWeight="black" align="center">
-        Welcome!
+        Welcome {user.username} !
       </Heading>
       <Box border="1px">
         <Heading>Profile</Heading>
@@ -35,7 +35,7 @@ function Profile() {
         <Text>Zipcode: {user.address.zipcode}</Text>
         <Text>Number: {user.address.number}</Text>
         <Text>Phone: {user.phone}</Text>
-        <Button size="sm" _hover="primary" onClick={reset}>
+        <Button size="sm" onClick={reset} as={Link} to="/">
           Log out
         </Button>
       </Box>
