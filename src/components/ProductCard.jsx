@@ -17,6 +17,14 @@ function ProductCard({ product, onClick }) {
           <Text fontWeight="bold" align="center">
             {product.title}
           </Text>
+          <Text
+            fontWeight="semibold"
+            fontStyle="italic"
+            color="red"
+            align="center"
+          >
+            $ {product.price}:-
+          </Text>
           <br />
           <Stack paddingLeft="10">
             <Button

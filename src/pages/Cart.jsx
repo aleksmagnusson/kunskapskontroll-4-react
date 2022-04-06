@@ -52,11 +52,11 @@ function Cart() {
               </Text>
               <Text textAlign="center" fontWeight="bold">
                 {" "}
-                {product.price}:- $
+                $ {product.price}:-
               </Text>
             </HStack>
           </Stack>
-          <Stack direction={["column", "row"]} spacing="10px">
+          <Stack display="flex" justifyContent="center">
             <HStack spacing="12px" marginTop="10px">
               <Button
                 bg="blue.400"
@@ -86,7 +86,7 @@ function Cart() {
                 color="white"
                 size="sm"
                 marginLeft="15"
-                _hover={{ bg: "blue.500" }}
+                _hover={{ bg: "red.500" }}
                 onClick={() => cart.setItemQuantity(item.id, 0)}
               >
                 Remove
@@ -106,29 +106,31 @@ function Cart() {
       {cart.items.map(getProduct)}
       <Grid textAlign="center"></Grid>
       <Text textAlign="center" fontWeight="bold">
-        Total: {getTotal().toFixed(2)}:- $
+        Total: $ {getTotal().toFixed(2)}:-
       </Text>
-      <VStack direction={["column", "row"]} spacing="20px">
-        <Button
-          bg="blue.400"
-          color="white"
-          size="md"
-          _hover={{ bg: "blue.500" }}
-          as={Link}
-          to="/products"
-        >
-          Continue Shopping
-        </Button>
-        <Button
-          bg="blue.500"
-          color="white"
-          size="md"
-          _hover={{ bg: "blue.100" }}
-          disabled
-        >
-          Checkout
-        </Button>
-      </VStack>
+      <Container>
+        <HStack spacing="12px" display="flex" justifyContent="center">
+          <Button
+            bg="blue.400"
+            color="white"
+            size="md"
+            _hover={{ bg: "blue.500" }}
+            as={Link}
+            to="/products"
+          >
+            Continue Shopping
+          </Button>
+          <Button
+            bg="blue.500"
+            color="white"
+            size="md"
+            _hover={{ bg: "blue.100" }}
+            disabled
+          >
+            Checkout
+          </Button>
+        </HStack>
+      </Container>
     </Box>
   );
 }

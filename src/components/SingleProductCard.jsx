@@ -1,6 +1,7 @@
 import React from "react";
 // Lägg till mer CSS via Chakra.
 import { Flex, Box, Text, Button, Image, Stack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function SingleProductCard({ product, onClick }) {
   return (
@@ -32,8 +33,13 @@ function SingleProductCard({ product, onClick }) {
           >
             {product.description}
           </Text>
-          <Text paddingTop="3" fontStyle="italic" fontWeight="medium">
-            Price: {product.price}:- $
+          <Text
+            paddingTop="3"
+            fontStyle="italic"
+            color="red"
+            fontWeight="medium"
+          >
+            Price: $ {product.price}:-
           </Text>
           <Text paddingTop="3" fontWeight="semibold">
             {" "}
@@ -48,6 +54,18 @@ function SingleProductCard({ product, onClick }) {
             marginTop="25"
           >
             Add product
+          </Button>
+          <Button
+            bg="blue.400"
+            color="white"
+            marginTop="25"
+            marginLeft="10"
+            _hover={{ bg: "blue.500" }}
+            as={Link}
+            to="/products"
+          >
+            {" "}
+            Go back{" "}
           </Button>
         </Box>
       </Stack>
