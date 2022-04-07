@@ -40,7 +40,7 @@ function App() {
       .get("https://k4backend.osuka.dev/products")
       .then((res) => {
         // Hämtar produkter och sparar i vår productstore.
-        setProducts(res.data);
+        setProducts(response.data);
       })
       .catch((err) => console.log(err));
   }, []);
