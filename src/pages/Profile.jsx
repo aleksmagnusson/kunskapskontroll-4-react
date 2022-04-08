@@ -34,24 +34,32 @@ function Profile() {
 
   return (
     <Box>
-      <Heading fontStyle="italic" fontWeight="black" align="center">
-        Welcome {user.username} !
+      <Heading
+        fontStyle="italic"
+        fontWeight="black"
+        align="center"
+        marginTop="2vh"
+      >
+        Welcome {user.username}!
       </Heading>
-      <Box border="1px">
-        <Heading>Profile</Heading>
-        <Text>Email: {user.email}</Text>
-        <Text>Username: {user.username}</Text>
-        <Text color="white" _hover={{ color: "black" }}>
+      <Box align="center">
+        <Heading margin="1vh" fontStyle="italic">
+          Profile
+        </Heading>
+        <Text fontSize="2xl">Email: {user.email}</Text>
+        <Text fontSize="2xl">Username: {user.username}</Text>
+        <Text fontSize="2xl" color="white" _hover={{ color: "black" }}>
           Password: {user.password}
         </Text>
-        <Text>Firstname: {user.name.firstname}</Text>
-        <Text>Lastname:{user.name.lastname}</Text>
-        <Text>City: {user.address.city}</Text>
-        <Text>Street:{user.address.street}</Text>
-        <Text>Zipcode: {user.address.zipcode}</Text>
-        <Text>Number: {user.address.number}</Text>
-        <Text>Phone: {user.phone}</Text>
+        <Text fontSize="2xl">Firstname: {user.name.firstname}</Text>
+        <Text fontSize="2xl">Lastname:{user.name.lastname}</Text>
+        <Text fontSize="2xl">City: {user.address.city}</Text>
+        <Text fontSize="2xl">Street:{user.address.street}</Text>
+        <Text fontSize="2xl">Zipcode: {user.address.zipcode}</Text>
+        <Text fontSize="2xl">Street Number: {user.address.number}</Text>
+        <Text fontSize="2xl">Phone: {user.phone}</Text>
         <Button
+          marginTop="25px"
           size="md"
           bg="blue.400"
           color="white"
