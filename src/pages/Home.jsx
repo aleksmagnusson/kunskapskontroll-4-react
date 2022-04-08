@@ -15,7 +15,7 @@ function Home() {
     <Flex>
       <Stack>
         <Heading paddingTop="35" direction="row" align="center">
-          Welcome to ProduitStore{" "}
+          Welcome to ProduitStore
         </Heading>
         <Text fontStyle="italic" fontWeight="medium" align="center">
           We have a large amount of diffrent products, for good prices!

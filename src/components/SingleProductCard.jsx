@@ -27,7 +27,7 @@ function SingleProductCard({ product, onClick }) {
           <Text
             fontStyle="italic"
             fontWeight="semibold"
-            maxW="250"
+            maxWidth="500px"
             marginLeft="15"
             paddingTop="3"
           >
