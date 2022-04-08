@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     const products = axios
       .get("https://k4backend.osuka.dev/products")
-      .then((res) => {
+      .then((response) => {
         // Hämtar produkter och sparar i vår productstore.
         setProducts(response.data);
       })

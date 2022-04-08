@@ -64,7 +64,7 @@ function Admin() {
   }
 
   return (
-    <Box border="1px">
+    <Box>
       <Heading align="center"> Overview of products and users </Heading>
       <Button
         size="sm"
@@ -80,7 +80,7 @@ function Admin() {
       {products.map((product) => {
         return (
           <Grid margin={4} xs={8} sm={4} md={2}>
-            <Box border="1px" key={product.id} to={`/product/${product.id}`}>
+            <Box key={product.id} to={`/product/${product.id}`}>
               <Image width="15%" src={product.image} />
               <Text fontWeight="semibold">{product.title}</Text>
               <Text fontWeight="semibold">$ {product.price}:-</Text>
