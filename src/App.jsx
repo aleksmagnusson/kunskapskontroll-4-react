@@ -37,7 +37,7 @@ function App() {
   const [products, setProducts] = useRecoilState(productsState);
   useEffect(() => {
     const products = axios
-      .get("https://k4backend.osuka.dev/products")
+      .get("https://fakestoreapi.com/products")
       .then((response) => {
         // Hämtar produkter och sparar i vår productstore.
         setProducts(response.data);
@@ -47,7 +47,7 @@ function App() {
 
   const setUsers = useRecoilState(userState)[1];
   useEffect(() => {
-    axios.get("https://k4backend.osuka.dev/users").then((response) => {
+    axios.get("https://fakestoreapi.com/users").then((response) => {
       setUsers(response.data);
     });
   }, [setUsers]);
