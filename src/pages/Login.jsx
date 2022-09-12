@@ -25,14 +25,14 @@ function Login() {
 
   function login(username, password) {
     axios
-      .post("https://k4backend.osuka.dev/auth/login", {
+      .post("https://fakestoreapi.com/auth/login", {
         username: username,
         password: password,
       })
 
       .then((res) => {
         axios
-          .get(`https://k4backend.osuka.dev/users/${res.data.userId}`)
+          .get(`https://fakestoreapi.com/auth/login/${res.data.userId}`)
           .then((userData) => {
             setAuth({
               user: userData.data,
