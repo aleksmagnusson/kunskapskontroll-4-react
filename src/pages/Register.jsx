@@ -44,15 +44,15 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    axios.post("https://k4backend.osuka.dev/users", user).then((response) => {
+    axios.post("https://fakestoreapi.com/users", user).then((response) => {
       axios
-        .post("https://k4backend.osuka.dev/auth/login", {
+        .post("https://fakestoreapi.com/auth/login", {
           username: response.data.username,
           password: response.data.password,
         })
         .then((response) => {
           axios
-            .get(`https://k4backend.osuka.dev/users/${response.data.userId}`)
+            .get(`https://fakestoreapi.com/users/${response.data.userId}`)
             .then((userData) => {
               console.log(userData.data);
               setAuth({
