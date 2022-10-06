@@ -25,7 +25,7 @@ function Login() {
 
   function login(username, password) {
     axios
-      .post("https://fakestoreapi.com/auth/login", {
+      .post('https://fakestoreapi.com/auth/login', {
         username: username,
         password: password,
       })
